@@ -30,6 +30,7 @@
             <StackPanel Orientation="Horizontal">
                 <Button Margin="10px 10px 10px 10px" x:Name="btnGrabar" Click="BtnGrabar_Click" >Grabar</Button>
                 <Button Margin="10px 10px 10px 10px" x:Name="btnCerrar" Click="BtnCerrar_Click"  >Cerrar</Button>
+                <Button Margin="10px 10px 10px 10px" x:Name="btnBorrar" Click="BtnBorrar_Click" >Borrar</Button>
             </StackPanel>
         </StackPanel>
 

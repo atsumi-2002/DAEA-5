@@ -70,14 +70,14 @@ namespace Data
             string comandText = string.Empty;
             try
             {
-                comandText = "USP_UpdProduct";
+                comandText = "UPS_UpdProducts";
                 parameters = new SqlParameter[3];
-                parameters[0] = new SqlParameter("@idcategoria", System.Data.SqlDbType.Int);
+                parameters[0] = new SqlParameter("@idproducto", System.Data.SqlDbType.Int);
                 parameters[0].Value = product.IdProducto;
-                parameters[1] = new SqlParameter("@nombrecategoria", System.Data.SqlDbType.VarChar);
+                parameters[1] = new SqlParameter("@nombre", System.Data.SqlDbType.VarChar);
                 parameters[1].Value = product.Nombre;
-                parameters[2] = new SqlParameter("@descripcion", System.Data.SqlDbType.Text);
-                parameters[3].Value = product.Precio;
+                parameters[2] = new SqlParameter("@precio", System.Data.SqlDbType.Decimal);
+                parameters[2].Value = product.Precio;
                 SQLHelper.ExecuteNonQuery(SQLHelper.Connection, comandText, System.Data.CommandType.StoredProcedure, parameters);
             }
             catch (Exception ex)
@@ -91,9 +91,9 @@ namespace Data
             string comandText = string.Empty;
             try
             {
-                comandText = "USP_DelProduct";
+                comandText = "UPS_DelProducts";
                 parameters = new SqlParameter[1];
-                parameters[0] = new SqlParameter("@idcategoria", System.Data.SqlDbType.Int);
+                parameters[0] = new SqlParameter("@idproducto", System.Data.SqlDbType.Int);
                 parameters[0].Value = IdProducto;
                 SQLHelper.ExecuteNonQuery(SQLHelper.Connection, comandText, System.Data.CommandType.StoredProcedure, parameters);
             }

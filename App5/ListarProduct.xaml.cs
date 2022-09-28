@@ -1,4 +1,5 @@
 ﻿using Business;
+using Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,7 +36,10 @@ namespace App5
             try
             {
                 Bproduct = new BProduct();
-                dgvProducto.ItemsSource = Bproduct.Listar(0);
+                if(txtId.Text=="")
+                    dgvProducto.ItemsSource = Bproduct.Listar(0);
+                else
+                    dgvProducto.ItemsSource = Bproduct.Listar(Convert.ToInt32(txtId.Text));
             }
             catch (Exception ex)
             {
@@ -55,7 +59,13 @@ namespace App5
 
         private void DgvProducto_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            
+            int idProduct;
+            var item = (Product)dgvProducto.SelectedItem;
+            if (null == item) return;
+            idProduct = Convert.ToInt32(item.IdProducto);
+            ManProduct manProduct = new ManProduct(idProduct);
+            manProduct.ShowDialog();
+            Cargar();
         }
     }
 }

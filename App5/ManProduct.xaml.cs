@@ -25,9 +25,11 @@ namespace App5
         public ManProduct(int Id)
         {
             InitializeComponent();
+            btnBorrar.Visibility = Visibility.Hidden;
             ID = Id;
             if (ID > 0)
             {
+                btnBorrar.Visibility = Visibility.Visible;
                 BProduct bProduct = new BProduct();
                 List<Product> products = new List<Product>();
                 products = bProduct.Listar(ID);
@@ -57,9 +59,9 @@ namespace App5
 
                 Close();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Comunicarse con el Administrador");
+                MessageBox.Show("Comunicarse con el Administrador"+ex);
             }
             finally
             {
@@ -70,6 +72,29 @@ namespace App5
         private void BtnCerrar_Click(object sender, RoutedEventArgs e)
         {
             Close();
+        }
+
+        private void BtnBorrar_Click(object sender, RoutedEventArgs e)
+        {
+            BProduct Bproduct = null;
+            bool result = true;
+            try
+            {
+                Bproduct = new BProduct();
+                result = Bproduct.Eliminar(ID);
+                if (!result)
+                    MessageBox.Show("Comunicarse con el Administrador");
+
+                Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Comunicarse con el Administrador" + ex);
+            }
+            finally
+            {
+                Bproduct = null;
+            }
         }
     }
 }
