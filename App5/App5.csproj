@@ -55,6 +55,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\CategoriaM.cs" />
+    <Compile Include="ViewModel\ListaCategoriaVM.cs" />
+    <Compile Include="ViewModel\ManCategoriaVM.cs" />
+    <Compile Include="ViewModel\RelayCommand.cs" />
+    <Compile Include="ViewModel\VMBase.cs" />
+    <Compile Include="View\ListaCategoria.xaml.cs">
+      <DependentUpon>ListaCategoria.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ManCategoria.xaml.cs">
+      <DependentUpon>ManCategoria.xaml</DependentUpon>
+    </Compile>
     <Page Include="ListaCategoria.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -86,6 +97,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ManProduct.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ListaCategoria.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ManCategoria.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -132,5 +151,6 @@
       <Name>Entity</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
